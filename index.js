@@ -27,6 +27,8 @@ app.get(
   })
 );
 
+app.get('/auth/google/callback', passport.authenticate('google'));
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log('Example app listening on port 4000!');
