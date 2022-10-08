@@ -160,4 +160,4 @@ dist
 .pnp.*
 
 # Custom
-keys.js
+dev.js
