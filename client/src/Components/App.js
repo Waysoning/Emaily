@@ -15,7 +15,18 @@ const Landing = () => {
 };
 
 const App = () => {
-  return <h1>Hello, world!!!</h1>;
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
