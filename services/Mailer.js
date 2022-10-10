@@ -6,7 +6,8 @@ class Mailer extends helper.Mail {
   constructor({ subject, recipients }, content) {
     super();
 
-    this.from_email = new helper.Email(process.env.SENDER_EMAIL);
+    this.sgApi = sendgrid(keys.sendGridKey);
+    this.from_email = new helper.Email(keys.senderEmail);
     this.subject = subject;
     this.body = new helper.Content('text/html', content);
     this.recipients = this.formatAddresses(recipients);
@@ -37,6 +38,17 @@ class Mailer extends helper.Mail {
       personalize.addTo(recipient);
     });
     this.addPersonalization(personalize);
+  }
+
+  async send() {
+    const request = this.sgApi.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: this.toJSON(),
+    });
+
+    const response = await this.sgApi.API(request);
+    return response;
   }
 }
 
