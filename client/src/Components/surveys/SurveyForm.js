@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title' },
@@ -53,6 +54,8 @@ function validate(values) {
       errors[name] = 'You must provide a value';
     }
   });
+
+  errors.emails = validateEmails(values.emails || '');
 
   return errors;
 }
