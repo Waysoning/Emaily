@@ -1,1 +1,1 @@
-# Email-Server
+# Emaily
