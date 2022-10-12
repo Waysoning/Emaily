@@ -13,4 +13,8 @@ const handleToken = (token) => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export { fetchUser, handleToken };
+const submitSurvey = (values) => {
+  return { type: 'submit_survey' };
+};
+
+export { fetchUser, handleToken, submitSurvey };
