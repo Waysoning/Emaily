@@ -5,9 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
+import Dashboard from './Dashboard';
 const SurveyNew = () => {
   return <h2>SurveyNew</h2>;
 };
